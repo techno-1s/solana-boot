@@ -8,7 +8,7 @@ use_firewall: True
 solana_user: solana
 solana_home: "/home/{{ solana_user }}"
 secrets_path: "/home/{{ solana_user }}/.secrets"
-solana_version: 1.17.33
+solana_version: 4.0.0
 env_path: "{{ solana_home }}/.local/share/solana/install/active_release/bin"
 cluster_rpc_address: 'https://api.mainnet-beta.solana.com'
 validator_log_path: "{{ mount_base_path }}/log"
@@ -22,7 +22,7 @@ ledger_path: /mnt/solana_ledger/ledger
 accounts_path: "{{ ramdisk_path }}/accounts"
 snapshots_path: /mnt/solana/snapshots
 open_solana_ports_start: 8000
-open_solana_ports_end: 10000
+open_solana_ports_end: 8030
 expected_shred_version: 50093
 cluster_environment: mainnet-beta
 entrypoints:
@@ -42,6 +42,7 @@ known_validators:
 jito_enable: false
 jito_block_engine_url:
 jito_relayer_url:
+jito_bam_url:
 jito_receiver_addr:
 jito_tip_payment_program_pubkey:
 jito_distribution_program_pubkey:

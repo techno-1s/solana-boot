@@ -41,6 +41,67 @@
   tags:
     - config.firewall
 
+- name: Allow Jito Relayer 1 from anywhere
+  ufw:
+    rule: allow
+    port: "11228"
+    proto: udp
+    
+- name: Allow Jito Relayer 2 from anywhere
+  ufw:
+    rule: allow
+    port: "11229"
+    proto: udp
+
+- name: 🔥 Deny port 8900 TCP/UDP
+  ufw:
+    rule: deny
+    port: "8900"
+    proto: any
+  tags:
+    - config.firewall
+    
+- name: 🔥 Deny RPC Port TCP/UDP
+  ufw:
+    rule: deny
+    port: "8899"
+    proto: any
+  tags:
+    - config.firewall
+
+- name: 🔥 Allow GRE protocol anywhere for Doublezero
+  ufw:
+    rule: allow
+    proto: gre
+    from_ip: any
+    to_ip: any
+  tags:
+    - config.firewall
+
+- name: 🔥 Allow TCP 179 on interface doublezero0 from 169.254.0.0/16 to 169.254.0.0/16
+  ufw:
+    rule: allow
+    direction: in
+    interface: doublezero0
+    from_ip: 169.254.0.0/16
+    to_ip: 169.254.0.0/16
+    port: "179"
+    proto: tcp
+  tags:
+    - config.firewall
+
+- name: 🔥 Allow outgoing TCP 179 on interface doublezero0 from 169.254.0.0/16 to 169.254.0.0/16
+  ufw:
+    rule: allow
+    direction: out
+    interface: doublezero0
+    from_ip: 169.254.0.0/16
+    to_ip: 169.254.0.0/16
+    port: "179"
+    proto: tcp
+  tags:
+    - config.firewall
+
 - name: 🔥 Enable ufw
   ufw:
     state: enabled

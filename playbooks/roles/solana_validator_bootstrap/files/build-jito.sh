@@ -125,20 +125,31 @@ rustup component add rustfmt
 
 rustup update
 
+#Authentication stuff
+#eval `ssh-agent -s`
+#ssh-add ~/.ssh/solana_id
+
+#git clone git@github.com:techno-1s/my-jito-solana.git --recurse-submodules
 git clone https://github.com/jito-foundation/jito-solana.git --recurse-submodules
 
 TAG=$_arg_tag_version
 
 cd jito-solana || exit
+#cd my-jito-solana || exit
 
 git checkout tags/"$TAG"
 
 git submodule update --init --recursive
 
-CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh --validator-only ~/.local/share/solana/install/releases/"$TAG"
+CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh ~/.local/share/solana/install/releases/"$TAG"
+#CI_COMMIT=$(git rev-parse HEAD) scripts/cargo-install-all.sh --validator-only ~/.local/share/solana/install/releases/"$TAG"
 
 rm -rf "$HOME"/.local/share/solana/install/active_release
 
 ln -sf /home/solana/.local/share/solana/install/releases/"$TAG" "$HOME"/.local/share/solana/install/active_release
 
+#rm -rf "$HOME"/my-jito-solana
 rm -rf "$HOME"/jito-solana
+
+#ssh-agent -k
+

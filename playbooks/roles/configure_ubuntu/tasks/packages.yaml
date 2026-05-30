@@ -22,5 +22,19 @@
       - ufw
       - rsyslog
       - update-motd
+      - btop
+      - nvme-cli
+      - net-tools
+      - cmake
+      - clang
+      - libssl-dev
+      - pkg-config
+      - llvm
+      - libprotobuf-dev
+      - protobuf-compiler
+      - libudev-dev
+      - libclang-dev
+      - jq
+      - doublezero
   tags:
     - config.packages
