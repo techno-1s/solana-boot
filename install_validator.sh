@@ -8,7 +8,7 @@ SHRED_RECEIVER=141.98.216.96:1002
 
 sudo ./scripts/init_validator.sh \
   --use-ramdisk-for-account False \
-  --swap-file-size-gb 512 \
+  --swap-file-size-gb 128 \
   --jito-enable True \
   --jito-block-engine-url https://$LOC.mainnet.block-engine.jito.wtf \
   --jito-relayer-url http://127.0.0.1:11226 \

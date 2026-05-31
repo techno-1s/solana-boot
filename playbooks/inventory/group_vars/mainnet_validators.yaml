@@ -19,8 +19,8 @@ expected_genesis_hash: 5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d
 maximum_local_snapshot_age: 3000
 limit_ledger_size: 50000000
 ledger_path: /mnt/solana_ledger/ledger
-accounts_path: "{{ ramdisk_path }}/accounts"
-snapshots_path: /mnt/solana/snapshots
+accounts_path: /mnt/accounts
+snapshots_path: "{{ mount_base_path }}/snapshots"
 open_solana_ports_start: 8000
 open_solana_ports_end: 8030
 expected_shred_version: 50093

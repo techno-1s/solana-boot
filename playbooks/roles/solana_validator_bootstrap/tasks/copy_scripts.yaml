@@ -19,14 +19,3 @@
   when: jito_enable
   tags:
     - copy.scripts
-
-- name: Create Jito upgrade build script
-  copy:
-    src: xdp_build-jito.sh
-    dest: /home/solana/xdp_build-jito.sh
-    mode: 0755
-    owner: solana
-    group: solana
-  when: jito_enable
-  tags:
-    - copy.scripts
