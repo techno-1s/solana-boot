@@ -1,7 +1,7 @@
 ---
 - name: 🤹 set force install fact
   set_fact:
-    force: "{{ force | default('false')  }}"
+    force: "{{ force | default(false)  }}"
   tags:
     - config.swap
 
